@@ -3,7 +3,6 @@ add_compile_options(
     -Wextra
     -pedantic
     -Werror
-    -std=c++17
     -Wno-sign-compare
     "$<$<CONFIG:DEBUG>:-O0;-g3;-ggdb>"
 )
@@ -18,3 +17,4 @@ add_subdirectory(day_07)
 add_subdirectory(day_08)
 add_subdirectory(day_09)
 add_subdirectory(day_10)
+add_subdirectory(day_11)
