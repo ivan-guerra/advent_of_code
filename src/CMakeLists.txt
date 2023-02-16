@@ -7,15 +7,4 @@ add_compile_options(
     "$<$<CONFIG:DEBUG>:-O0;-g3;-ggdb>"
 )
 
-add_subdirectory(day_01)
-add_subdirectory(day_02)
-add_subdirectory(day_03)
-add_subdirectory(day_04)
-add_subdirectory(day_05)
-add_subdirectory(day_06)
-add_subdirectory(day_07)
-add_subdirectory(day_08)
-add_subdirectory(day_09)
-add_subdirectory(day_10)
-add_subdirectory(day_11)
-add_subdirectory(day_12)
+add_subdirectory(2022)

@@ -1,36 +1,72 @@
 #!/bin/bash
 
 # This script allows the User to run a solution's corresponding executable.
-# The script usage is as follows: run.sh SOLUTION_NAME INPUT_FILE
-# where SOLUTION_NAME is an executable name of the form aoc_[1-25]_[1,2]
-# For example, run.sh aoc_5_2 tells the script to run the day 5 problem 2
-# solution.
+# The script usage is as follows: run.sh [OPTION]... EXE_NAME INPUT_FILE
+# where EXE_NAME is the name of the solution executable in the format
+# aoc_YYYY_[1-25]_[1-2] and INPUT_FILE is the path to the problem input file.
+# For example, ./run.sh aoc_2022_5_2 inputs/2022/day_05/stacks.txt
+# tells the script to run the AOC year 2022 day 5 problem 2 solution taking
+# as input the text file located under inputs/2022/day_05/stacks.txt.
 
 source config.sh
 
-if [ $# -eq 0 ]
-then
-    echo -e "${LRED}error missing executable name${NC}"
-    echo -e "${LRED}usage: run.sh SOLUTION_NAME INPUT_FILE${NC}"
-    echo -e "${LRED}EXAMPLE\n\trun.sh day_1_1 calories.txt${NC}"
-    exit 1
-fi
+DEBUG_ON=0
 
-EXE_NAME="$1"
-INPUT_FILE="$2"
+Help()
+{
+    echo "Run AOC Solutions"
+    echo
+    echo "usage: run.sh [OPTION]... EXE_NAME INPUT_FILE"
+    echo "options:"
+    echo -e "\tg    Load the executable into the GNU Debugger."
+    echo -e "\th    Print this help message."
+}
 
-# Parse the day number out of the executable name. The day number
-# is always the first decimal number between the '_' characters in the executable
-# name. For example, given the name 'aoc_25_1', the statement below will set
-# DAY_NUM=25
-DAY_NUM=$(echo ${EXE_NAME} | sed -n "s/^.*_\([0-9]\+\)_.*$/\1/p")
+RunSolution()
+{
+    EXE_PATH=$(find $AOC_BIN_DIR -name $1 2>/dev/null)
+    if [ -z $EXE_PATH ]; then
+        echo -e "${LRED}error: executable '$1' not found${NC}"
+        echo -e "${LRED}Did you forget to run build.sh?${NC}"
+        exit 1
+    fi
 
-EXE_PATH="${AOC_BIN_DIR}/day_${DAY_NUM}/${EXE_NAME}"
-if [ -f "${EXE_PATH}" ]
-then
-    # The executable was found, run it.
-    ${EXE_PATH} ${INPUT_FILE}
-else
-    echo -e "${LRED}error executable '${EXE_PATH}' not found${NC}"
-    echo -e "${LRED}make sure you run build.sh before running this script${NC}"
-fi
+    INPUT_FILE=$2
+    if [ ! -f $INPUT_FILE ]; then
+        echo -e "${LRED}error: file '$INPUT_FILE' does not exist${NC}"
+        exit 1
+    fi
+
+    if [ $DEBUG_ON -eq 1 ];
+    then
+        gdb --args $EXE_PATH $INPUT_FILE
+    else
+        $EXE_PATH $INPUT_FILE
+    fi
+}
+
+Main()
+{
+    if [ $# -ne 2 ]
+    then
+        echo -e "${LRED}error: invalid argument count${NC}"
+        Help
+        exit 1
+    fi
+    RunSolution $1 $2
+}
+
+while getopts "gh" flag;
+do
+    case "$flag" in
+        g) DEBUG_ON=1;;
+        h) Help
+           exit;;
+       \?) echo "error: invalid option '$OPTARG'"
+           Help
+           exit;;
+     esac
+done
+shift $((OPTIND - 1))
+
+Main $@

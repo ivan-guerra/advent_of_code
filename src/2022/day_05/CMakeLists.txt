@@ -1,12 +1,13 @@
 cmake_minimum_required(VERSION 3.13...3.22)
 
-project(day_9 DESCRIPTION "Day 9 Solutions"
-              LANGUAGES   CXX
+project(aoc_${AOC_YEAR}_day_5 
+    DESCRIPTION "AOC 2022 - Day 5 Solutions"
+    LANGUAGES   CXX
 )
 
 set(TARGET_NAMES
-    aoc_9_1
-    aoc_9_2
+    aoc_2022_5_1
+    aoc_2022_5_2
 )
 
 foreach(NAME ${TARGET_NAMES})
@@ -14,5 +15,5 @@ foreach(NAME ${TARGET_NAMES})
 endforeach(NAME ${TARGET_NAMES})
 
 install(TARGETS ${TARGET_NAMES}
-    RUNTIME DESTINATION "${AOC_BIN_DIR}/${PROJECT_NAME}"
+    RUNTIME DESTINATION "${AOC_BIN_DIR}/${AOC_YEAR}/${PROJECT_NAME}"
 )
