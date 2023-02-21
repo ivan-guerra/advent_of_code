@@ -4,6 +4,7 @@ add_compile_options(
     -pedantic
     -Werror
     -Wno-sign-compare
+    -std=c++2a
     "$<$<CONFIG:DEBUG>:-O0;-g3;-ggdb>"
 )
 

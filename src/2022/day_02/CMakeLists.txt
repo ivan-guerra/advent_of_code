@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13...3.22)
 
-project(aoc_${AOC_YEAR}_day_2 
+project(aoc_${AOC_YEAR}_day_2
     DESCRIPTION "AOC 2022 - Day 2 Solutions"
     LANGUAGES   CXX
 )
@@ -12,6 +12,10 @@ set(TARGET_NAMES
 
 foreach(NAME ${TARGET_NAMES})
     add_executable(${NAME} ${NAME}.cc)
+
+    target_compile_options(${NAME}
+        PRIVATE -Wno-deprecated-enum-enum-conversion
+    )
 endforeach(NAME ${TARGET_NAMES})
 
 install(TARGETS ${TARGET_NAMES}
