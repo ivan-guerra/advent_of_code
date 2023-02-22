@@ -5,7 +5,7 @@ Advent of Code solutions in C++.
 ### Building the Solutions
 
 To build this project you'll need CMake3.13+ and a C++ compiler supporting
-C++17 features.
+C++20 features.
 
 The [scripts](scripts) directory contains a few utility scripts including the
 build and run scripts. Change directory to [scripts](scripts).
@@ -45,4 +45,3 @@ solution, then we would run the command:
 ```
 ./run.sh -g aoc_2022_5_2 inputs/2022/day_05/stacks.txt
 ```
-This would drop us in a GDB session from which can do our debugging.
