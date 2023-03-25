@@ -10,4 +10,5 @@ add_compile_options(
 
 add_subdirectory(2015)
 add_subdirectory(2016)
+add_subdirectory(2017)
 add_subdirectory(2022)
