@@ -1,0 +1,2 @@
+Solution can be found by looking at the OEIS sequence enumeration:
+https://oeis.org/A141481
