@@ -8,8 +8,8 @@ add_compile_options(
     "$<$<CONFIG:DEBUG>:-O0;-g3;-ggdb>"
 )
 
-#add_subdirectory(2015)
-#add_subdirectory(2016)
-#add_subdirectory(2017)
+add_subdirectory(2015)
+add_subdirectory(2016)
+add_subdirectory(2017)
 add_subdirectory(2018)
-#add_subdirectory(2022)
+add_subdirectory(2022)
