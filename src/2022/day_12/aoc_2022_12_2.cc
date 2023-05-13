@@ -94,7 +94,6 @@ std::vector<Position> GetStartPoints(TerrainMatrix& terrain) {
 }
 
 Position GetEndPoint(TerrainMatrix& terrain) {
-    Position end_point;
     for (int i = 0; i < terrain.size(); ++i) {
         for (int j = 0; j < terrain[0].size(); ++j) {
             if (terrain[i][j] == 'E') return Position(i, j);
