@@ -34,9 +34,9 @@ add_link_options(
     "$<$<CONFIG:Debug>:-fsanitize=address>"
 )
 
-#add_subdirectory(2015)
-#add_subdirectory(2016)
-#add_subdirectory(2017)
-#add_subdirectory(2018)
+add_subdirectory(2015)
+add_subdirectory(2016)
+add_subdirectory(2017)
+add_subdirectory(2018)
 add_subdirectory(2019)
-#add_subdirectory(2022)
+add_subdirectory(2022)
