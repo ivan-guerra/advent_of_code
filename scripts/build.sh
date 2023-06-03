@@ -24,6 +24,7 @@ Main()
 
     pushd $AOC_BUILD_DIR
         cmake ../                               \
+              -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
               -DCMAKE_BUILD_TYPE=$BUILD_TYPE && \
         make -j$(nproc) all                  && \
         make install

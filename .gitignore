@@ -7,3 +7,6 @@ bin
 # Ignore the cscope/ctags index files.
 cscope.*
 tags
+
+# Ignore CMake compile commands database.
+compile_commands.json
