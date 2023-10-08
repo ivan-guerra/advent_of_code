@@ -59,13 +59,13 @@ Main()
 while getopts "gh" flag;
 do
     case "$flag" in
-        g) DEBUG_ON=1;;
+        g) DEBUG_ON=1 ;;
         h) Help
-           exit;;
-       \?) echo "error: invalid option '$OPTARG'"
-           Help
-           exit;;
-     esac
+            exit ;;
+        \?) echo "error: invalid option '$OPTARG'"
+            Help
+            exit ;;
+    esac
 done
 shift $((OPTIND - 1))
 
