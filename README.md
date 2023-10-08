@@ -35,7 +35,7 @@ solution executable to be run and the path to the solution's input file.
 All executables have the form `aoc_YYYY_[1-25]_[1-2]`. For example, to
 run AOC 2022's day 5 exercise 2 solution you would use the command
 ```
-./run.sh aoc_2022_5_2 ../inputs/2022/day_05/stacks.txt
+./run.sh aoc_2022_5_2 ../inputs/2022/day_05/input.txt
 ```
 
 If you built the solutions with debug info, you can tell `run.sh` to
@@ -43,5 +43,5 @@ load a particular solution under the GNU Debugger by passing the `-g` flag.
 As an example, suppose we wanted to debug the AOC 2022 day 5 exercise 2
 solution, then we would run the command:
 ```
-./run.sh -g aoc_2022_5_2 inputs/2022/day_05/stacks.txt
+./run.sh -g aoc_2022_5_2 inputs/2022/day_05/input.txt
 ```
