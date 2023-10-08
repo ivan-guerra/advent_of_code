@@ -7,11 +7,11 @@ project(
 
 set(TARGET_NAMES aoc_${AOC_YEAR}_14_1 aoc_${AOC_YEAR}_14_2)
 
-foreach(NAME ${TARGET_NAMES})
-  add_executable(${NAME} ${NAME}.cc)
+foreach(name ${TARGET_NAMES})
+  add_executable(${name} ${name}.cc)
 
-  target_link_libraries(${NAME} PRIVATE ssl3 crypto)
-endforeach(NAME ${TARGET_NAMES})
+  target_link_libraries(${name} PRIVATE ssl3 crypto)
+endforeach(name ${TARGET_NAMES})
 
 install(TARGETS ${TARGET_NAMES}
         RUNTIME DESTINATION "${AOC_BIN_DIR}/${AOC_YEAR}/${PROJECT_NAME}")

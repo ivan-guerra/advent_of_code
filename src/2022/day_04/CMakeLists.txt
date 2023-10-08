@@ -7,9 +7,9 @@ project(
 
 set(TARGET_NAMES aoc_2022_4_1 aoc_2022_4_2)
 
-foreach(NAME ${TARGET_NAMES})
-  add_executable(${NAME} ${NAME}.cc)
-endforeach(NAME ${TARGET_NAMES})
+foreach(name ${TARGET_NAMES})
+  add_executable(${name} ${name}.cc)
+endforeach(name ${TARGET_NAMES})
 
 install(TARGETS ${TARGET_NAMES}
         RUNTIME DESTINATION "${AOC_BIN_DIR}/${AOC_YEAR}/${PROJECT_NAME}")

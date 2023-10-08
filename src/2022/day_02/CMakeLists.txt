@@ -7,11 +7,11 @@ project(
 
 set(TARGET_NAMES aoc_2022_2_1 aoc_2022_2_2)
 
-foreach(NAME ${TARGET_NAMES})
-  add_executable(${NAME} ${NAME}.cc)
+foreach(name ${TARGET_NAMES})
+  add_executable(${name} ${name}.cc)
 
-  target_compile_options(${NAME} PRIVATE -Wno-deprecated-enum-enum-conversion)
-endforeach(NAME ${TARGET_NAMES})
+  target_compile_options(${name} PRIVATE -Wno-deprecated-enum-enum-conversion)
+endforeach(name ${TARGET_NAMES})
 
 install(TARGETS ${TARGET_NAMES}
         RUNTIME DESTINATION "${AOC_BIN_DIR}/${AOC_YEAR}/${PROJECT_NAME}")
