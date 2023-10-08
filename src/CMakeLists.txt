@@ -1,14 +1,6 @@
-set(COMMON_FLAGS
-    -std=c++2a
-)
+set(COMMON_FLAGS -std=c++2a)
 
-set(WARNING_FLAGS
-    -Wall
-    -Wextra
-    -Werror
-    -Wno-sign-compare
-    -pedantic
-)
+set(WARNING_FLAGS -Wall -Wextra -Werror -Wno-sign-compare -pedantic)
 
 set(DEBUG_FLAGS
     ${COMMON_FLAGS}
@@ -17,22 +9,14 @@ set(DEBUG_FLAGS
     -g3
     -ggdb
     -fno-omit-frame-pointer
-    -fsanitize=address
-)
+    -fsanitize=address)
 
-set(RELEASE_FLAGS
-    ${COMMON_FLAGS}
-    -O2
-)
+set(RELEASE_FLAGS ${COMMON_FLAGS} -O2)
 
-add_compile_options(
-    "$<$<CONFIG:Release>:${RELEASE_FLAGS}>"
-    "$<$<CONFIG:Debug>:${DEBUG_FLAGS}>"
-)
+add_compile_options("$<$<CONFIG:Release>:${RELEASE_FLAGS}>"
+                    "$<$<CONFIG:Debug>:${DEBUG_FLAGS}>")
 
-add_link_options(
-    "$<$<CONFIG:Debug>:-fsanitize=address>"
-)
+add_link_options("$<$<CONFIG:Debug>:-fsanitize=address>")
 
 add_subdirectory(2015)
 add_subdirectory(2016)
