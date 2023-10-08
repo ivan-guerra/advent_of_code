@@ -6,41 +6,41 @@
 #include <vector>
 
 char GetCharAtCol(const std::vector<std::string>& messages, int k) {
-    std::unordered_map<char, int> char_frequencies;
-    char most_frequent = '\0';
-    int most_frequent_ctr = 0;
-    for (int i = 0; i < messages.size(); ++i) {
-        char_frequencies[messages[i][k]]++;
-        if (char_frequencies[messages[i][k]] > most_frequent_ctr) {
-            most_frequent_ctr = char_frequencies[messages[i][k]];
-            most_frequent = messages[i][k];
-        }
+  std::unordered_map<char, int> char_frequencies;
+  char most_frequent = '\0';
+  int most_frequent_ctr = 0;
+  for (int i = 0; i < messages.size(); ++i) {
+    char_frequencies[messages[i][k]]++;
+    if (char_frequencies[messages[i][k]] > most_frequent_ctr) {
+      most_frequent_ctr = char_frequencies[messages[i][k]];
+      most_frequent = messages[i][k];
     }
-    return most_frequent;
+  }
+  return most_frequent;
 }
 
 std::string DecipherMessage(const std::vector<std::string>& messages) {
-    std::string deciphered_msg;
-    for (int i = 0; i < messages[0].size(); ++i) {
-        deciphered_msg += GetCharAtCol(messages, i);
-    }
-    return deciphered_msg;
+  std::string deciphered_msg;
+  for (int i = 0; i < messages[0].size(); ++i) {
+    deciphered_msg += GetCharAtCol(messages, i);
+  }
+  return deciphered_msg;
 }
 
 int main(int argc, char** argv) {
-    if (argc != 2) {
-        std::cerr << "error: missing puzzle input file" << std::endl;
-        exit(EXIT_FAILURE);
-    }
+  if (argc != 2) {
+    std::cerr << "error: missing puzzle input file" << std::endl;
+    exit(EXIT_FAILURE);
+  }
 
-    std::ifstream input(argv[1]);
-    std::string message;
-    std::vector<std::string> messages;
-    while (std::getline(input, message)) {
-        messages.push_back(message);
-    }
+  std::ifstream input(argv[1]);
+  std::string message;
+  std::vector<std::string> messages;
+  while (std::getline(input, message)) {
+    messages.push_back(message);
+  }
 
-    std::cout << "Answer: " << DecipherMessage(messages) << std::endl;
+  std::cout << "Answer: " << DecipherMessage(messages) << std::endl;
 
-    exit(EXIT_SUCCESS);
+  exit(EXIT_SUCCESS);
 }

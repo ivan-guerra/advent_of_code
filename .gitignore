@@ -4,9 +4,8 @@ bin
 # Ignore CMake build directories.
 /build*
 
-# Ignore the cscope/ctags index files.
-cscope.*
-tags
-
 # Ignore CMake compile commands database.
 compile_commands.json
+
+# Ignore clang cache
+.cache
