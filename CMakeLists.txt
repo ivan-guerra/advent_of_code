@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.13...3.22)
+cmake_minimum_required(VERSION 3.13)
 
 project(advent_of_code
     VERSION 1.0

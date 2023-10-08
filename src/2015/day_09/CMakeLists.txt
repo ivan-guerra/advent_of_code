@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.13...3.22)
+cmake_minimum_required(VERSION 3.13)
 
 project(aoc_${AOC_YEAR}_day_9
     DESCRIPTION "AOC ${AOC_YEAR} - Day  Solutions"
