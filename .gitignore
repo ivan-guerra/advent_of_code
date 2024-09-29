@@ -9,3 +9,6 @@ compile_commands.json
 
 # Ignore clang cache
 .cache
+
+# Ignore Makefile used by mkprg
+Makefile

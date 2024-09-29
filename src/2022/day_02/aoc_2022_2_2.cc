@@ -30,15 +30,18 @@ int GetScore(const std::string input) {
     Outcome expected_outcome = kExpectedOutcomes.at(line[2]);
     switch (expected_outcome) {
       case Outcome::kDraw:
-        score += opponent_hand + Outcome::kDraw;
+        score +=
+            static_cast<int>(opponent_hand) + static_cast<int>(Outcome::kDraw);
         break;
       case Outcome::kWin:
-        score += kLosingMoves.at(opponent_hand) + Outcome::kWin;
+        score += static_cast<int>(kLosingMoves.at(opponent_hand)) +
+                 static_cast<int>(Outcome::kWin);
         break;
       case Outcome::kLose:
-        score += kWinningMoves.at(opponent_hand) + Outcome::kLose;
+        score += static_cast<int>(kWinningMoves.at(opponent_hand)) +
+                 static_cast<int>(Outcome::kLose);
         break;
-    };
+    }
   }
   return score;
 }
